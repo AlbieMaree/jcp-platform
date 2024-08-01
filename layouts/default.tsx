@@ -1,9 +1,8 @@
-import { Link } from "@nextui-org/link";
-
 import { Head } from "./head";
-
 import { Navbar } from "@/components/navbar";
-
+import { Link } from "@nextui-org/link";
+import { button as buttonStyles } from "@nextui-org/theme";
+import { ThemeSwitch } from "@/components/theme-switch";
 export default function DefaultLayout({
   children,
 }: {
@@ -17,14 +16,19 @@ export default function DefaultLayout({
         {children}
       </main>
       <footer className="w-full flex items-center justify-center py-3">
+        <ThemeSwitch className="mr-4" />
+        <span className="text-default-600 mr-4 ml-80">Powered by</span>
+        <p className="text-primary mr-80">Community</p>
         <Link
           isExternal
-          className="flex items-center gap-1 text-current"
-          href="https://nextui-docs-v2.vercel.app?utm_source=next-pages-template"
-          title="nextui.org homepage"
+          className={buttonStyles({
+            color: "primary",
+            radius: "full",
+            variant: "shadow",
+          })}
+          href="/faq"
         >
-          <span className="text-default-600">Powered by</span>
-          <p className="text-primary">NextUI</p>
+          FAQ
         </Link>
       </footer>
     </div>

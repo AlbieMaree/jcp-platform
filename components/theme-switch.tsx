@@ -3,8 +3,8 @@ import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { SwitchProps, useSwitch } from "@nextui-org/switch";
 import { useTheme } from "next-themes";
 import clsx from "clsx";
-
-import { SunFilledIcon, MoonFilledIcon } from "@/components/icons";
+import { WiMoonAltFirstQuarter } from "react-icons/wi";
+import { WiMoonAltThirdQuarter } from "react-icons/wi";
 
 export interface ThemeSwitchProps {
   className?: string;
@@ -74,10 +74,13 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
           ),
         })}
       >
+         <p className="mr-2" >{theme}</p>
+        
         {isSelected ? (
-          <MoonFilledIcon size={22} />
+         
+          <WiMoonAltFirstQuarter size={22} />
         ) : (
-          <SunFilledIcon size={22} />
+          <WiMoonAltThirdQuarter size={22} />
         )}
       </div>
     </Component>
