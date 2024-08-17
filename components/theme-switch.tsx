@@ -1,88 +1,33 @@
-import { FC, useState, useEffect } from "react";
-import { VisuallyHidden } from "@react-aria/visually-hidden";
-import { SwitchProps, useSwitch } from "@nextui-org/switch";
+import React from "react";
+import { Switch } from "@nextui-org/react";
+import { WiMoonWaxingCrescent4 , WiMoonWaningCrescent4  } from "react-icons/wi";
 import { useTheme } from "next-themes";
 import clsx from "clsx";
-import { WiMoonAltFirstQuarter } from "react-icons/wi";
-import { WiMoonAltThirdQuarter } from "react-icons/wi";
 
 export interface ThemeSwitchProps {
   className?: string;
-  classNames?: SwitchProps["classNames"];
+  classNames?: any;
 }
 
-export const ThemeSwitch: FC<ThemeSwitchProps> = ({
-  className,
-  classNames,
-}) => {
-  const [isMounted, setIsMounted] = useState(false);
-
+const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ className, classNames }) => {
   const { theme, setTheme } = useTheme();
 
-  const onChange = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTheme(e.target.checked ? "dark" : "light");
   };
 
-  const {
-    Component,
-    slots,
-    isSelected,
-    getBaseProps,
-    getInputProps,
-    getWrapperProps,
-  } = useSwitch({
-    isSelected: theme === "light",
-    onChange,
-  });
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, [isMounted]);
-
-  // Prevent Hydration Mismatch
-  if (!isMounted) return <div className="w-6 h-6" />;
-
   return (
-    <Component
-      {...getBaseProps({
-        className: clsx(
-          "px-px transition-opacity hover:opacity-80 cursor-pointer",
-          className,
-          classNames?.base,
-        ),
-      })}
+    <Switch
+    defaultSelected={theme === "dark"}
+    size="lg"
+    color="default"
+    onChange={onChange}
+    startContent={<WiMoonWaxingCrescent4 />}
+    endContent={<WiMoonWaningCrescent4 />}
+    className={clsx("px-px transition-opacity hover:scale-110 cursor-pointer", className, classNames)}
     >
-      <VisuallyHidden>
-        <input {...getInputProps()} />
-      </VisuallyHidden>
-      <div
-        {...getWrapperProps()}
-        className={slots.wrapper({
-          class: clsx(
-            [
-              "w-auto h-auto",
-              "bg-transparent",
-              "rounded-lg",
-              "flex items-center justify-center",
-              "group-data-[selected=true]:bg-transparent",
-              "!text-default-500",
-              "pt-px",
-              "px-0",
-              "mx-0",
-            ],
-            classNames?.wrapper,
-          ),
-        })}
-      >
-         <p className="mr-2" >{theme}</p>
-        
-        {isSelected ? (
-         
-          <WiMoonAltFirstQuarter size={22} />
-        ) : (
-          <WiMoonAltThirdQuarter size={22} />
-        )}
-      </div>
-    </Component>
+    </Switch>
   );
 };
+
+export { ThemeSwitch };
