@@ -142,3 +142,12 @@ export const faq = [
   },
   { Q: "How do I balance work and life?", A: "Good luck. Most people don’t." },
 ];
+
+export const menuItems = [
+  "Profile",
+  "My Tickets",
+  "Support",
+  "Login",
+  "Sign up",
+  "Log Out",
+];

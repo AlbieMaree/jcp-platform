@@ -56,6 +56,56 @@ export default function TasksPage() {
             showValueLabel={true}
             className="max-w-md"
           />
+          <Progress
+            aria-label="Downloading..."
+            size="md"
+            maxValue={40}
+            formatOptions={{ style: "decimal" }}
+            value={value}
+            color="success"
+            showValueLabel={true}
+            className="max-w-md"
+          />
+          <Progress
+            aria-label="Downloading..."
+            size="md"
+            maxValue={40}
+            formatOptions={{ style: "decimal" }}
+            value={value}
+            color="success"
+            showValueLabel={true}
+            className="max-w-md"
+          />
+          <Progress
+            aria-label="Downloading..."
+            size="md"
+            maxValue={40}
+            formatOptions={{ style: "decimal" }}
+            value={value}
+            color="success"
+            showValueLabel={true}
+            className="max-w-md"
+          />
+          <Progress
+            aria-label="Downloading..."
+            size="md"
+            maxValue={40}
+            formatOptions={{ style: "decimal" }}
+            value={value}
+            color="success"
+            showValueLabel={true}
+            className="max-w-md"
+          />
+          <Progress
+            aria-label="Downloading..."
+            size="md"
+            maxValue={40}
+            formatOptions={{ style: "decimal" }}
+            value={value}
+            color="success"
+            showValueLabel={true}
+            className="max-w-md"
+          />
           <br></br>
           <div className="py-11 resize-none">
             <Input

@@ -81,7 +81,7 @@ export default function SupportTypePage() {
                 disableAutosize
                 classNames={{
                   base: `w-full max-w-4xl ${marginBottom}`,
-                  input: "resize-y min-h-[100px] w-full",
+                  input: "resize-y min-h-[70px] w-full",
                 }}
               />
               <Textarea
@@ -106,7 +106,7 @@ export default function SupportTypePage() {
                 disableAutosize
                 classNames={{
                   base: `w-full max-w-4xl ${marginBottom}`,
-                  input: "resize-y min-h-[100px] max-h-[100px]w-full",
+                  input: "resize-y min-h-[50px] w-full",
                 }}
               />
             </>

@@ -5,30 +5,17 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/navbar";
-import { button as buttonStyles } from "@nextui-org/theme";
 import { Link } from "@nextui-org/link";
 import React from "react";
 import { ButtonGroup } from "@nextui-org/react";
 import { siteConfig } from "@/config/site";
-
+import { menuItems } from "../public/data"
 interface NavbarProps {
   className?: string;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ className }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
 
   return (
     <div className={className}>
