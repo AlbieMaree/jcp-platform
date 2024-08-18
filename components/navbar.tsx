@@ -1,8 +1,8 @@
 import {
   Navbar as NextUINavbar,
   NavbarContent,
-  NavbarMenuToggle, 
-  NavbarMenu, 
+  NavbarMenuToggle,
+  NavbarMenu,
   NavbarMenuItem
 } from "@nextui-org/navbar";
 import { button as buttonStyles } from "@nextui-org/theme";
@@ -35,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
       <NextUINavbar
         maxWidth="xl"
         position="sticky"
-        className="w-full relative" 
+        className="w-full relative"
         onMenuOpenChange={setIsMenuOpen}
       >
         {/* Text positioned absolutely at the top */}
@@ -55,21 +55,20 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
           </div>
 
           <div className="flex-grow flex justify-center">
-            <ButtonGroup>
+            <ButtonGroup className="mx-12">
               {siteConfig.navItems.map((item) => (
                 <Link
                   key={item.href}
-                  className={`${buttonStyles({
-                    color: "primary",
-                    variant: "ghost",
-                  })} mx-2`}
                   href={item.href}
+                  underline="hover"
+                  className="mx-6 underline-offset-8 decoration-2 text-2xl"
                 >
                   {item.label}
                 </Link>
               ))}
             </ButtonGroup>
           </div>
+
         </NavbarContent>
 
         {/* Navbar Menu */}
