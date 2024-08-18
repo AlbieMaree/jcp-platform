@@ -24,5 +24,5 @@ export const siteConfig = {
       label: "Support",
       href: "/support",
     },
-  ]
+  ],
 };

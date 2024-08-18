@@ -3,7 +3,7 @@ import { useRouter } from "next/router"; // Import the useRouter hook from Next.
 import React from "react";
 import DefaultLayout from "@/layouts/default";
 import { Select, SelectItem } from "@nextui-org/react";
-import { supportType } from "../data"; // Import the support type data
+import { supportType } from "../../public/data"; // Import the support type data
 
 export default function SupportPage() {
   const router = useRouter(); // Initialize the useRouter hook
@@ -22,7 +22,7 @@ export default function SupportPage() {
               radius="none"
               onSelectionChange={(selected) => {
                 const selectedType = selected.currentKey ?? "";
-                router.push(`support/supportTypePage?type=${selectedType}`); 
+                router.push(`support/supportTypePage?type=${selectedType}`);
               }}
               className="w-64"
             >

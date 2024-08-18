@@ -17,9 +17,7 @@ export default function DefaultLayout({
     <div className="relative flex flex-col min-h-screen bg-cover bg-fixed overflow-hidden">
       <Head />
       <Navbar className="fixed top-0 left-0 z-50 w-full" />
-      <main className="flex-grow pt-16 relative z-10">
-        {children}
-      </main>
+      <main className="flex-grow pt-16 relative z-10">{children}</main>
 
       <footer className="w-full flex items-center justify-between h-40 py-3 bg-cover z-10 bg-black">
         <div className="flex items-center ml-5">
@@ -48,19 +46,18 @@ export default function DefaultLayout({
               radius: "full",
               variant: "shadow",
             })}
-            href="/faq">
+            href="/faq"
+          >
             FAQ
           </Link>
         </div>
       </footer>
 
-
-
-
       <div
         className="absolute inset-0 z-0 bg-cover bg-fixed"
         style={{
-          backgroundImage: theme === 'dark' ? "url('/images/dark-background.png')" : "",
+          backgroundImage:
+            theme === "dark" ? "url('/images/dark-background.png')" : "",
         }}
       >
         <div className="absolute inset-0 backdrop-blur-md"></div>

@@ -1,21 +1,20 @@
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import DefaultLayout from "@/layouts/default";
-import { urgencies } from "../data";
-import { supportType } from "../data";
+import { urgencies } from "../../public/data";
+import { supportType } from "../../public/data";
 import { Select, SelectItem } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/react";
 import React, { useState, useEffect, useCallback } from "react";
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function SupportTypePage() {
   const router = useRouter();
   const { type } = router.query;
 
-  const supportTypeKeys = supportType.map(item => item.key);
+  const supportTypeKeys = supportType.map((item) => item.key);
 
   const handleType = useCallback(() => {
-
-    if (typeof type === 'string' && !supportTypeKeys.includes(type)) {
+    if (typeof type === "string" && !supportTypeKeys.includes(type)) {
       router.push(`../support`);
     }
   }, [type, supportTypeKeys, router]);
@@ -56,7 +55,9 @@ export default function SupportTypePage() {
           <>
             <div className="inline-block max-w-lg text-center justify-center">
               <h2>Additional Information for Budget Support</h2>
-              <p>This section contains extra details for the Budget support type.</p>
+              <p>
+                This section contains extra details for the Budget support type.
+              </p>
             </div>
             <Textarea
               isRequired
@@ -114,7 +115,10 @@ export default function SupportTypePage() {
         {type === "Technical" && (
           <div className="inline-block max-w-lg text-center justify-center">
             <h2>Additional Information for Technical Support</h2>
-            <p>This section contains extra details for the Technical support type.</p>
+            <p>
+              This section contains extra details for the Technical support
+              type.
+            </p>
           </div>
         )}
 
@@ -138,4 +142,3 @@ export default function SupportTypePage() {
     </DefaultLayout>
   );
 }
-

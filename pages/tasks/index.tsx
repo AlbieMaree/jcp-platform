@@ -19,13 +19,12 @@ export default function TasksPage() {
       setErrorMessage("Value must be less than 40");
       return false;
     }
-    setErrorMessage(""); 
+    setErrorMessage("");
     return true;
   };
-  
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       const inputElement = event.target as HTMLInputElement;
       const num = parseFloat(inputElement.value);
       if (!validateNumber(num)) {
@@ -35,7 +34,7 @@ export default function TasksPage() {
       setIsInvalid(false);
       setValue(value + num);
     }
-    if (event.key === 'Backspace' || event.key === 'Delete') {
+    if (event.key === "Backspace" || event.key === "Delete") {
       setIsInvalid(false);
     }
   };
@@ -51,7 +50,7 @@ export default function TasksPage() {
             aria-label="Downloading..."
             size="md"
             maxValue={40}
-            formatOptions={{style: "decimal"}}
+            formatOptions={{ style: "decimal" }}
             value={value}
             color="success"
             showValueLabel={true}
@@ -59,15 +58,15 @@ export default function TasksPage() {
           />
           <br></br>
           <div className="py-11 resize-none">
-          <Input
-            isRequired
-            label="Hours worked"
-            defaultValue="1"
-            onKeyDown={handleKeyPress}
-            isInvalid={isInvalid}
-            errorMessage={errorMessage}
-            className="max-w-xs"
-          />
+            <Input
+              isRequired
+              label="Hours worked"
+              defaultValue="1"
+              onKeyDown={handleKeyPress}
+              isInvalid={isInvalid}
+              errorMessage={errorMessage}
+              className="max-w-xs"
+            />
           </div>
           <h2>This is the tasks page.</h2>
         </div>

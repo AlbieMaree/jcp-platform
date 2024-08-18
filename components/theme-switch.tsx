@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch } from "@nextui-org/react";
-import { WiMoonWaxingCrescent4 , WiMoonWaningCrescent4  } from "react-icons/wi";
+import { WiMoonWaxingCrescent4, WiMoonWaningCrescent4 } from "react-icons/wi";
 import { useTheme } from "next-themes";
 import clsx from "clsx";
 
@@ -18,15 +18,18 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ className, classNames }) => {
 
   return (
     <Switch
-    defaultSelected={theme === "dark"}
-    size="lg"
-    color="default"
-    onChange={onChange}
-    startContent={<WiMoonWaxingCrescent4 />}
-    endContent={<WiMoonWaningCrescent4 />}
-    className={clsx("px-px transition-opacity hover:scale-110 cursor-pointer", className, classNames)}
-    >
-    </Switch>
+      defaultSelected={theme === "dark"}
+      size="lg"
+      color="default"
+      onChange={onChange}
+      startContent={<WiMoonWaxingCrescent4 />}
+      endContent={<WiMoonWaningCrescent4 />}
+      className={clsx(
+        "px-px transition-opacity hover:scale-110 cursor-pointer",
+        className,
+        classNames,
+      )}
+    ></Switch>
   );
 };
 
