@@ -20,29 +20,50 @@ export default function DefaultLayout({
       <main className="flex-grow pt-16 relative z-10">
         {children}
       </main>
-      <footer className="w-full flex items-center justify-center py-3 bg-cover z-10">
-        <ThemeSwitch className="mr-4" />
-        <span className="text-default-600 mr-4">Powered by</span>
-        <p className="text-primary mr-4">Community</p>
-        <Link
-          className={buttonStyles({
-            color: "primary",
-            radius: "full",
-            variant: "shadow",
-          })}
-          href="/faq">
-          FAQ
-        </Link>
+
+      <footer className="w-full flex items-center justify-between h-40 py-3 bg-cover z-10 bg-black">
+        <div className="flex items-center ml-5">
+          <ThemeSwitch className="mr-4" />
+        </div>
+
+        <div className="flex items-center flex-grow justify-center space-x-96">
+          <div className="text-2xl space-y-4 text-white">
+            <p>Social media</p>
+            <p>NO</p>
+          </div>
+          <div className="flex items-center text-white">
+            <span className="mr-4 text-white">Powered by</span>
+            <p className="text-primary mr-4">Community</p>
+          </div>
+          <div className="text-2xl space-y-4 text-white">
+            <p>Our partners</p>
+            <p>NO</p>
+          </div>
+        </div>
+
+        <div className="mr-5">
+          <Link
+            className={buttonStyles({
+              color: "primary",
+              radius: "full",
+              variant: "shadow",
+            })}
+            href="/faq">
+            FAQ
+          </Link>
+        </div>
       </footer>
+
+
+
+
       <div
         className="absolute inset-0 z-0 bg-cover bg-fixed"
         style={{
-          backgroundImage: theme === 'dark' 
-            ? "url('/images/dark-background.png')" 
-            : "url('/images/light-background.jpg')",
+          backgroundImage: theme === 'dark' ? "url('/images/dark-background.png')" : "",
         }}
       >
-       <div className="absolute inset-0 backdrop-blur-md"></div>
+        <div className="absolute inset-0 backdrop-blur-md"></div>
       </div>
     </div>
   );

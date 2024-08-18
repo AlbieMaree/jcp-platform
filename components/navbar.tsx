@@ -3,7 +3,7 @@ import {
   NavbarContent,
   NavbarMenuToggle,
   NavbarMenu,
-  NavbarMenuItem
+  NavbarMenuItem,
 } from "@nextui-org/navbar";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { Link } from "@nextui-org/link";
@@ -35,23 +35,39 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
       <NextUINavbar
         maxWidth="xl"
         position="sticky"
-        className="w-full relative"
+        className="w-full absolute h-24 backdrop-blur-lg bg-opacity-75"
         onMenuOpenChange={setIsMenuOpen}
       >
-        {/* Text positioned absolutely at the top */}
         <div className="absolute top-0 left-0 right-0 flex justify-center z-10">
           <p className="font-bold text-inherit text-2xl">
             Joint community based project
           </p>
         </div>
 
-        {/* Main Navbar Content */}
-        <NavbarContent className="flex items-center justify-between w-full mt-8 pt-12">
+        <NavbarContent className="flex items-center justify-between w-full mt-8 z-10">
           <div className="flex-shrink-0">
             <NavbarMenuToggle
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               className="ml-0"
             />
+            {isMenuOpen && (
+              <div className="absolute top-full left-0 z-50 w-auto shadow-lg p-4 mt-2 backdrop-blur-lg bg-opacity-75">
+                <div className="flex flex-col">
+                  {menuItems.map((item, index) => (
+                    <NavbarMenuItem key={`${item}-${index}`}>
+                      <Link
+                        color="foreground"
+                        className="w-full"
+                        href="/"
+                        size="lg"
+                      >
+                        {item}
+                      </Link>
+                    </NavbarMenuItem>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="flex-grow flex justify-center">
@@ -68,26 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
               ))}
             </ButtonGroup>
           </div>
-
         </NavbarContent>
-
-        {/* Navbar Menu */}
-        <NavbarMenu>
-          {menuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                color={
-                  index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
-                }
-                className="w-full"
-                href="#"
-                size="lg"
-              >
-                {item}
-              </Link>
-            </NavbarMenuItem>
-          ))}
-        </NavbarMenu>
       </NextUINavbar>
     </div>
   );

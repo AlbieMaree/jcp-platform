@@ -2,7 +2,7 @@ import DefaultLayout from "@/layouts/default";
 import { Progress } from "@nextui-org/react";
 import React, { useState } from "react";
 import { Input } from "@nextui-org/react";
-export default function DocsPage() {
+export default function TasksPage() {
   const [value, setValue] = useState(0.0);
   const [isInvalid, setIsInvalid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");

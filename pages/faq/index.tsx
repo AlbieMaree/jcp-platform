@@ -1,7 +1,7 @@
 import DefaultLayout from "@/layouts/default";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import { faq } from "../data";
-export default function DocsPage() {
+export default function FaqPage() {
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -11,7 +11,7 @@ export default function DocsPage() {
           <h2>This is the frequently asked questions page.</h2>
         </div>
         <div className="max-w-96">
-        <Accordion selectionMode="multiple" isCompact>
+        <Accordion  selectionMode="multiple" isCompact>
           {faq.map((element) => (
             <AccordionItem key={element.Q} title={element.Q}>
               <div style={{ whiteSpace: "pre-line" }}>

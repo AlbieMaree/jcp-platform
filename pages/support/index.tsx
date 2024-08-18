@@ -1,21 +1,18 @@
-
-
 // pages/docs.tsx
+import { useRouter } from "next/router"; // Import the useRouter hook from Next.js
+import React from "react";
 import DefaultLayout from "@/layouts/default";
 import { Select, SelectItem } from "@nextui-org/react";
 import { supportType } from "../data"; // Import the support type data
-import React, { useState } from "react";
-import { useRouter } from "next/router"; // Import the useRouter hook from Next.js
 
-export default function supportPage() {
-
+export default function SupportPage() {
   const router = useRouter(); // Initialize the useRouter hook
 
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-lg text-center justify-center">
-          <p className="pb-4 text-2xl">This is the support page.</p>
+          <p className="pb-4 text-4xl">This is the support page.</p>
           <div className="mt-4">
             <Select
               labelPlacement="outside"
