@@ -6,7 +6,7 @@ import { Select, SelectItem } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/react";
 import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-
+import {Button} from "@nextui-org/react";
 export default function SupportTypePage() {
   const router = useRouter();
   const { type } = router.query;
@@ -40,104 +40,108 @@ export default function SupportTypePage() {
     }
   };
 
+  const marginBottom = "mb-8";
+
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="items-center justify-center text-4xl">
+        <div className={`items-center justify-center text-4xl ${marginBottom}`}>
           <Link href="/support">Support Home</Link> &gt; <span>{type}</span>
         </div>
-        <div className="inline-block max-w-lg text-center justify-center">
-          <h2>Selected Support Type: {type}</h2>
+        <div className={`inline-block max-w-lg text-center justify-center ${marginBottom}`}>
+          <h2 className={marginBottom}>Selected Support Type: {type}</h2>
           <p>This page shows details about the selected support type.</p>
         </div>
-
-        {type === "funding" && (
-          <>
-            <div className="inline-block max-w-lg text-center justify-center">
-              <h2>Additional Information for Budget Support</h2>
-              <p>
+        <div className={`inline-block max-w-lg text-center justify-center w-96 gap-y-10`}>
+          {type === "funding" && (
+            <>
+              <h2 className={marginBottom}>Additional Information for Budget Support</h2>
+              <p className={marginBottom}>
                 This section contains extra details for the Budget support type.
               </p>
+              <Textarea
+                isRequired
+                label="Input 1 input is required"
+                labelPlacement="outside"
+                radius="none"
+                placeholder="Ok bro"
+                disableAnimation
+                disableAutosize
+                classNames={{
+                  base: `w-full max-w-4xl ${marginBottom}`,
+                  input: "resize-y min-h-[100px] w-full",
+                }}
+              />
+              <Textarea
+                label="Input 2"
+                labelPlacement="outside"
+                radius="none"
+                placeholder="Different place holder"
+                disableAnimation
+                disableAutosize
+                classNames={{
+                  base: `w-full max-w-4xl ${marginBottom}`,
+                  input: "resize-y min-h-[100px] w-full",
+                }}
+              />
+              <Textarea
+                isRequired
+                label="Input 3 input is required"
+                labelPlacement="outside"
+                radius="none"
+                placeholder="Same place holder"
+                disableAnimation
+                disableAutosize
+                classNames={{
+                  base: `w-full max-w-4xl ${marginBottom}`,
+                  input: "resize-y min-h-[100px] w-full",
+                }}
+              />
+              <Textarea
+                label="Input 4"
+                labelPlacement="outside"
+                radius="none"
+                placeholder="Same place holder"
+                disableAnimation
+                disableAutosize
+                classNames={{
+                  base: `w-full max-w-4xl ${marginBottom}`,
+                  input: "resize-y min-h-[100px] max-h-[100px]w-full",
+                }}
+              />
+            </>
+          )}
+
+          {type === "Technical" && (
+            <div className={`inline-block max-w-lg text-center justify-center ${marginBottom}`}>
+              <h2 className={marginBottom}>Additional Information for Technical Support</h2>
+              <p className={marginBottom}>
+                This section contains extra details for the Technical support type.
+              </p>
             </div>
-            <Textarea
-              isRequired
-              label="Input 1 input is required"
-              labelPlacement="outside"
-              radius="none"
-              placeholder="Ok bro"
-              disableAnimation
-              disableAutosize
-              classNames={{
-                base: "max-w-xs",
-                input: "resize-y min-h-[100px]",
-              }}
-            />
-            <Textarea
-              label="Input 2"
-              labelPlacement="outside"
-              radius="none"
-              placeholder="Different place holder"
-              disableAnimation
-              disableAutosize
-              classNames={{
-                base: "max-w-xs",
-                input: "resize-y min-h-[100px]",
-              }}
-            />
-            <Textarea
-              isRequired
-              label="Input 3 input is required"
-              labelPlacement="outside"
-              radius="none"
-              placeholder="Same place holder"
-              disableAnimation
-              disableAutosize
-              classNames={{
-                base: "max-w-xs",
-                input: "resize-y min-h-[100px]",
-              }}
-            />
-            <Textarea
-              label="Input 4"
-              labelPlacement="outside"
-              radius="none"
-              placeholder="Same place holder"
-              disableAnimation
-              disableAutosize
-              classNames={{
-                base: "max-w-xs",
-                input: "resize-y min-h-[100px]",
-              }}
-            />
-          </>
-        )}
+          )}
 
-        {type === "Technical" && (
-          <div className="inline-block max-w-lg text-center justify-center">
-            <h2>Additional Information for Technical Support</h2>
-            <p>
-              This section contains extra details for the Technical support
-              type.
-            </p>
-          </div>
-        )}
-
-        <Select
-          labelPlacement="outside"
-          color={getColour(selectedUrgency)}
-          label="Support urgency"
-          placeholder=""
-          selectedKeys={[selectedUrgency]}
-          variant="underlined"
-          onSelectionChange={(selected) =>
-            setSelectedUrgency(selected.currentKey ?? "")
-          }
-          className="w-64"
-        >
-          {urgencies.map((urgency) => (
-            <SelectItem key={urgency.key}>{urgency.label}</SelectItem>
-          ))}
-        </Select>
+          <Select
+            labelPlacement="outside"
+            color={getColour(selectedUrgency)}
+            label="Support urgency"
+            placeholder=""
+            selectedKeys={[selectedUrgency]}
+            variant="underlined"
+            
+            onSelectionChange={(selected) =>
+              setSelectedUrgency(selected.currentKey ?? "")
+            }
+            className={`max-w-4xl items-center justify-center ${marginBottom}`}
+          >
+            {urgencies.map((urgency) => (
+              <SelectItem key={urgency.key}>{urgency.label}</SelectItem>
+            ))}
+          </Select>
+          <Button color="danger" radius="none">
+            Submit support ticket
+          </Button>
+        </div>
       </section>
     </DefaultLayout>
   );

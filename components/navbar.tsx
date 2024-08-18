@@ -35,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
       <NextUINavbar
         maxWidth="xl"
         position="sticky"
-        className="w-full absolute h-24 backdrop-blur-lg bg-opacity-75"
+        className="w-full absolute h-24 backdrop-blur-sm bg-opacity-0"
         onMenuOpenChange={setIsMenuOpen}
       >
         <div className="absolute top-0 left-0 right-0 flex justify-center z-10">
