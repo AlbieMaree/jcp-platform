@@ -18,7 +18,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ className, classNames }) => {
 
   return (
     <Switch
-      defaultSelected={theme === "dark"}
+      defaultSelected={theme === "light"}
       size="lg"
       color="default"
       onChange={onChange}
