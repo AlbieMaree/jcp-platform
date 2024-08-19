@@ -21,22 +21,24 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ className, classNames }) => {
     setTheme(e.target.checked ? "dark" : "light");
   };
 
+  if (!isMounted) {
+    return null;
+  }
+
   return (
-    isMounted && (
-      <Switch
-        checked={resolvedTheme === "dark"}
-        size="lg"
-        color="default"
-        onChange={onChange}
-        startContent={<WiMoonWaxingCrescent4 />}
-        endContent={<WiMoonWaningCrescent4 />}
-        className={clsx(
-          "px-px transition-opacity hover:scale-110 cursor-pointer",
-          className,
-          classNames
-        )}
-      />
-    )
+    <Switch
+      defaultSelected = {resolvedTheme === "dark"}
+      size="lg"
+      color="default"
+      onChange={onChange}
+      startContent={<WiMoonWaxingCrescent4 />}
+      endContent={<WiMoonWaningCrescent4 />}
+      className={clsx(
+        "px-px transition-opacity hover:scale-110 cursor-pointer",
+        className,
+        classNames
+      )}
+    />
   );
 };
 
