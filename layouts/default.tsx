@@ -1,4 +1,5 @@
-import React from "react";
+// Layout.tsx
+import React, { useEffect } from "react";
 import { Head } from "./head";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
@@ -11,7 +12,13 @@ export default function DefaultLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    if (!theme) {
+      setTheme("light");
+    }
+  }, [theme, setTheme]);
 
   return (
     <div className="relative flex flex-col min-h-screen bg-cover bg-fixed overflow-hidden">
