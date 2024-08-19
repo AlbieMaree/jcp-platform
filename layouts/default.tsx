@@ -1,5 +1,5 @@
-// Layout.tsx
-import React, { useEffect } from "react";
+// components/DefaultLayout.tsx
+import React, { useEffect, useState } from "react";
 import { Head } from "./head";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
@@ -12,13 +12,12 @@ export default function DefaultLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    if (!theme) {
-      setTheme("light");
-    }
-  }, [theme, setTheme]);
+    setIsMounted(true);
+  }, []);
 
   return (
     <div className="relative flex flex-col min-h-screen bg-cover bg-fixed overflow-hidden">
@@ -60,15 +59,19 @@ export default function DefaultLayout({
         </div>
       </footer>
 
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-fixed"
-        style={{
-          backgroundImage:
-            theme === "dark" ? "url('/images/dark-background.png')" : "",
-        }}
-      >
-        <div className="absolute inset-0 backdrop-blur-md"></div>
-      </div>
+      {isMounted && (
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-fixed"
+          style={{
+            backgroundImage:
+              resolvedTheme === "dark"
+                ? "url('/images/dark-background.png')"
+                : "",
+          }}
+        >
+          <div className="absolute inset-0 backdrop-blur-md"></div>
+        </div>
+      )}
     </div>
   );
 }
